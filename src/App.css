@@ -80,6 +80,7 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .all_browser {
   margin-top: 20px;
@@ -100,7 +101,8 @@ h4 {
   margin-bottom: 0.75rem;
 }
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  margin: 25px auto;
 }
 h2 {
   font-size: 2rem;
@@ -138,7 +140,7 @@ p {
 
 .display-activeBirthday {
   display: grid;
-  width: 60%;
+  width: 64%;
   grid-template-columns: auto auto auto auto;
   margin: 20px auto;
 }
@@ -175,6 +177,18 @@ p {
 
 .add_birthday:active {
   box-shadow: none;
+}
+
+.add_birthday-ex {
+  padding: 12px 24px;
+  height: 43px;
+  width: 160px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 30px 5px rgb(0 0 0 / 20%);
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 100;
 }
 
 .form {
@@ -258,4 +272,44 @@ p {
   color: white;
   box-shadow: none;
   cursor: default;
+}
+
+@media screen and (max-width: 752px) {
+  .display-activeBirthday {
+    width: 80%;
+    grid-template-columns: auto auto;
+    margin-top: 80px;
+  }
+
+  .profile {
+    width: 90px;
+    height: 90px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 30px;
+  }
+
+  .birthName {
+    height: 35px;
+  }
+
+  .add_birthday-ex {
+    top: 40px;
+    right: 25%;
+  }
+}
+
+@media screen and (min-width: 753px) and (max-width: 1024px) {
+  .display-activeBirthday {
+    width: 80%;
+    grid-template-columns: auto auto auto;
+    margin-top: 80px;
+  }
+
+  .add_birthday-ex {
+    top: 65px;
+    right: 36%;
+  }
 }

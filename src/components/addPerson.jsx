@@ -16,8 +16,6 @@ const AddPerson = ({ setDisplay, getAllUsers }) => {
       body: JSON.stringify(data),
     });
     const jsonResponse = await response.json();
-    // getUsers(jsonResponse);
-    // console.log("All users", jsonResponse);
     if(typeof jsonResponse === 'object') callback();
   };
 

@@ -1,4 +1,5 @@
 import Data from "../birthdayData.json";
+import { removePassedDate } from "../helper";
 
 const month = [
   "Jan",
@@ -17,26 +18,18 @@ const month = [
 
 const BirthdayReminder = ({ allUsers }) => {
 
+  const currentData = [...Data.data, ...allUsers];
+
   const sortData = (arr) => {
     return arr.sort((a, b) => a.dob.split("-")[0] - b.dob.split("-")[0]);
-  };
-  const currentBirthday = () => {
-    const month = new Date().toLocaleDateString("en-GB").split("/")[1];
-    const currentData = [...Data.data, ...allUsers];
-    return currentData.filter((item) => item.dob.split("-")[1] === month);
-  };
-  const removePassedDate = () => {
-    return currentBirthday().filter(
-      (item) => item.dob.split("-")[0] >= new Date().getDate()
-    );
   };
 
   return (
     <>
       <h1>Birthday Reminder</h1>
-      {sortData(removePassedDate()).length ?
+      {sortData(removePassedDate(currentData)).length ?
       <div className="display-activeBirthday">
-        {sortData(removePassedDate()).map((item) => {
+        {sortData(removePassedDate(currentData)).map((item) => {
           const m = item.dob.split("-")[1];
           const d = item.dob.split("-")[0];
 
